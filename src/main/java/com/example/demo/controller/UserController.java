@@ -5,6 +5,8 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author : Yasiru Dahanayaka
  * @name : demo
@@ -21,9 +23,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/getUser")
-    public String getUser(){
-        return "Simple-root";
+    @GetMapping("/getUsers")
+    public List<UserDTO> getUser(){
+        return userService.getAllUser();
     }
 
     @PostMapping("/saveUser")
